@@ -1,10 +1,14 @@
 package br.com.jogo21;
 
-public class GeradorCartas extends Cartas {
+import java.util.Random;
 
-    private Object Cartas(Naipe naipe, int valor) {
-        this.naipe = naipe;
-        this.valor = valor;
-        return naipe.getNome()+valor;
+public class GeradorCartas {
+    Random random = new Random();
+
+    public Cartas gerar() {
+        Naipe[] naipes = Naipe.values();
+        Naipe naipe = naipes[random.nextInt(4)];
+        int valor = random.nextInt(13) + 1;
+        return new Cartas(naipe, valor);
     }
 }
